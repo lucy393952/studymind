@@ -1,0 +1,793 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.4">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 12.0px 0.0px; font: 12.0px Times; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+  </style>
+</head>
+<body>
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html lang="de"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;meta charset="UTF-8"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;title&gt;StudyMind – KI Lernassistent&lt;/title&gt;</span></p>
+<p class="p1"><span class="s1">&lt;meta name="description" content="Dein persönlicher KI-Lernassistent – Lernstoff hochladen, Prüfungsdatum setzen, abfragen lassen."&gt;</span></p>
+<p class="p1"><span class="s1">&lt;link rel="icon" href="data:image/svg+xml,&lt;svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'&gt;&lt;text y='.9em' font-size='90'&gt;🧠&lt;/text&gt;&lt;/svg&gt;"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&amp;family=Cabinet+Grotesk:wght@300;400;500;700&amp;display=swap" rel="stylesheet"&gt;</span></p>
+<p class="p1"><span class="s1">&lt;style&gt;</span></p>
+<p class="p1"><span class="s1">:root {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--ink:#0e0e14; --ink2:#1c1c2a; --ink3:#242436;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--fog:rgba(255,255,255,0.04); --fog2:rgba(255,255,255,0.08); --fog3:rgba(255,255,255,0.13);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--lime:#c8f135; --lime2:#a8d020;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--coral:#ff6b6b; --sky:#5bb8ff; --gold:#ffd166; --lav:#b8a9ff; --mint:#06d6a0;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--text:#eeeaf8; --text2:#9896b4; --text3:#5a5878;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--r:18px; --rsm:10px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">*{margin:0;padding:0;box-sizing:border-box;}</span></p>
+<p class="p1"><span class="s1">html{scroll-behavior:smooth;}</span></p>
+<p class="p1"><span class="s1">body{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-family:'Cabinet Grotesk',sans-serif;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:var(--ink);color:var(--text);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>min-height:100vh;overflow-x:hidden;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">body::before{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>content:'';position:fixed;inset:0;z-index:0;pointer-events:none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>radial-gradient(ellipse 80% 60% at -10% 10%,rgba(200,241,53,.07) 0%,transparent 55%),</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>radial-gradient(ellipse 60% 50% at 110% 90%,rgba(91,184,255,.06) 0%,transparent 55%),</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>radial-gradient(ellipse 40% 30% at 50% 50%,rgba(184,169,255,.04) 0%,transparent 60%);</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">body::after{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>content:'';position:fixed;inset:0;z-index:0;pointer-events:none;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background-image:url("data:image/svg+xml,%3Csvg width='60' height='60' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23ffffff' fill-opacity='0.018'/%3E%3C/svg%3E");</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">.wrap{position:relative;z-index:1;max-width:900px;margin:0 auto;padding:28px 20px 100px;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* HEADER */</span></p>
+<p class="p1"><span class="s1">header{display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;flex-wrap:wrap;gap:12px;}</span></p>
+<p class="p1"><span class="s1">.logo{display:flex;align-items:center;gap:14px;}</span></p>
+<p class="p1"><span class="s1">.logo-mark{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>width:44px;height:44px;border-radius:12px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:var(--lime);display:flex;align-items:center;justify-content:center;font-size:22px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>box-shadow:0 0 30px rgba(200,241,53,.3);animation:pulse-logo 4s ease-in-out infinite;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">@keyframes pulse-logo{0%,100%{box-shadow:0 0 30px rgba(200,241,53,.3)}50%{box-shadow:0 0 50px rgba(200,241,53,.5)}}</span></p>
+<p class="p1"><span class="s1">.logo h1{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:900;letter-spacing:-1px;line-height:1;}</span></p>
+<p class="p1"><span class="s1">.logo h1 span{color:var(--lime);}</span></p>
+<p class="p1"><span class="s1">.hdr-right{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}</span></p>
+<p class="p1"><span class="s1">.key-pill{font-size:.75rem;padding:6px 14px;border-radius:99px;display:flex;align-items:center;gap:6px;font-weight:500;cursor:pointer;transition:all .2s;}</span></p>
+<p class="p1"><span class="s1">.key-ok{background:rgba(200,241,53,.1);color:var(--lime);border:1px solid rgba(200,241,53,.2);}</span></p>
+<p class="p1"><span class="s1">.key-ok:hover{background:rgba(200,241,53,.18);}</span></p>
+<p class="p1"><span class="s1">.key-no{background:rgba(255,107,107,.1);color:var(--coral);border:1px solid rgba(255,107,107,.2);}</span></p>
+<p class="p1"><span class="s1">.key-no:hover{background:rgba(255,107,107,.18);}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* SHARE BANNER */</span></p>
+<p class="p1"><span class="s1">#share-banner{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:var(--ink2);border:1px solid var(--fog3);border-radius:var(--r);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding:16px 20px;margin-bottom:20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>display:flex;align-items:center;gap:14px;flex-wrap:wrap;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.share-url{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>flex:1;padding:9px 14px;background:var(--ink3);border:1px solid var(--fog3);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border-radius:var(--rsm);font-size:.82rem;color:var(--text2);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-family:monospace;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.share-label{font-size:.8rem;color:var(--text2);white-space:nowrap;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* TABS */</span></p>
+<p class="p1"><span class="s1">.nav-tabs{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>display:flex;gap:2px;margin-bottom:28px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:var(--ink2);border:1px solid var(--fog3);border-radius:var(--rsm);padding:4px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.nav-tab{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>flex:1;padding:11px 8px;border-radius:8px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:transparent;color:var(--text2);border:none;cursor:pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-family:'Cabinet Grotesk',sans-serif;font-size:.85rem;font-weight:500;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>transition:all .2s;display:flex;align-items:center;justify-content:center;gap:6px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.nav-tab.active{background:var(--lime);color:var(--ink);box-shadow:0 2px 12px rgba(200,241,53,.3);}</span></p>
+<p class="p1"><span class="s1">.tab-c{display:none;animation:fadeUp .22s ease;}</span></p>
+<p class="p1"><span class="s1">.tab-c.active{display:block;}</span></p>
+<p class="p1"><span class="s1">@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* CARDS */</span></p>
+<p class="p1"><span class="s1">.card{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:var(--ink2);border:1px solid var(--fog3);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border-radius:var(--r);padding:28px;margin-bottom:16px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>position:relative;overflow:hidden;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--fog3),transparent);}</span></p>
+<p class="p1"><span class="s1">.card-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:22px;}</span></p>
+<p class="p1"><span class="s1">.card-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;margin-bottom:3px;}</span></p>
+<p class="p1"><span class="s1">.card-sub{font-size:.8rem;color:var(--text2);}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* BUTTONS */</span></p>
+<p class="p1"><span class="s1">.btn{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>display:inline-flex;align-items:center;gap:7px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding:11px 22px;border-radius:var(--rsm);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-family:'Cabinet Grotesk',sans-serif;font-size:.88rem;font-weight:500;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>cursor:pointer;border:none;transition:all .18s;white-space:nowrap;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.btn-lime{background:var(--lime);color:var(--ink);font-weight:700;box-shadow:0 4px 20px rgba(200,241,53,.25);}</span></p>
+<p class="p1"><span class="s1">.btn-lime:hover{background:var(--lime2);transform:translateY(-1px);box-shadow:0 6px 28px rgba(200,241,53,.4);}</span></p>
+<p class="p1"><span class="s1">.btn-ghost{background:var(--fog);color:var(--text2);border:1px solid var(--fog3);}</span></p>
+<p class="p1"><span class="s1">.btn-ghost:hover{background:var(--fog2);color:var(--text);}</span></p>
+<p class="p1"><span class="s1">.btn-coral{background:rgba(255,107,107,.12);color:var(--coral);border:1px solid rgba(255,107,107,.2);}</span></p>
+<p class="p1"><span class="s1">.btn-coral:hover{background:rgba(255,107,107,.22);}</span></p>
+<p class="p1"><span class="s1">.btn-sky{background:rgba(91,184,255,.12);color:var(--sky);border:1px solid rgba(91,184,255,.25);}</span></p>
+<p class="p1"><span class="s1">.btn-sky:hover{background:rgba(91,184,255,.22);}</span></p>
+<p class="p1"><span class="s1">.btn-mint{background:rgba(6,214,160,.12);color:var(--mint);border:1px solid rgba(6,214,160,.25);}</span></p>
+<p class="p1"><span class="s1">.btn-mint:hover{background:rgba(6,214,160,.22);}</span></p>
+<p class="p1"><span class="s1">.btn-sm{padding:7px 14px;font-size:.8rem;}</span></p>
+<p class="p1"><span class="s1">.btn:disabled{opacity:.35;cursor:not-allowed;transform:none!important;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* INPUTS */</span></p>
+<p class="p1"><span class="s1">label{font-size:.78rem;color:var(--text2);font-weight:500;display:block;margin-bottom:7px;letter-spacing:.3px;text-transform:uppercase;}</span></p>
+<p class="p1"><span class="s1">input[type=text],input[type=date],input[type=password],textarea,select{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>width:100%;padding:13px 16px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:var(--ink3);border:1px solid var(--fog3);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border-radius:var(--rsm);color:var(--text);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-family:'Cabinet Grotesk',sans-serif;font-size:.92rem;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>outline:none;transition:border-color .2s;color-scheme:dark;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">input:focus,textarea:focus,select:focus{border-color:var(--lime);}</span></p>
+<p class="p1"><span class="s1">input::placeholder,textarea::placeholder{color:var(--text3);}</span></p>
+<p class="p1"><span class="s1">textarea{resize:vertical;min-height:110px;line-height:1.65;}</span></p>
+<p class="p1"><span class="s1">select option{background:var(--ink2);}</span></p>
+<p class="p1"><span class="s1">.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:18px;}</span></p>
+<p class="p1"><span class="s1">.form-group{margin-bottom:18px;}</span></p>
+<p class="p1"><span class="s1">.divider{height:1px;background:var(--fog2);margin:20px 0;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* TOPIC TAGS */</span></p>
+<p class="p1"><span class="s1">.topics-wrap{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:var(--ink3);border-radius:var(--rsm);padding:14px;min-height:60px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border:1px solid var(--fog3);margin-bottom:10px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.topic-tag{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>display:inline-flex;align-items:center;gap:6px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding:5px 12px;border-radius:99px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:var(--fog2);border:1px solid var(--fog3);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-size:.82rem;color:var(--text);animation:popIn .15s ease;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">@keyframes popIn{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:scale(1)}}</span></p>
+<p class="p1"><span class="s1">.topic-tag button{background:none;border:none;color:var(--text3);cursor:pointer;font-size:1rem;line-height:1;padding:0 2px;transition:color .15s;}</span></p>
+<p class="p1"><span class="s1">.topic-tag button:hover{color:var(--coral);}</span></p>
+<p class="p1"><span class="s1">.topic-input-row{display:flex;gap:8px;}</span></p>
+<p class="p1"><span class="s1">.topic-input-row input{flex:1;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* UPLOAD */</span></p>
+<p class="p1"><span class="s1">.upload-zone{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border:2px dashed var(--fog3);border-radius:var(--r);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding:32px 24px;text-align:center;cursor:pointer;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>transition:all .2s;position:relative;margin-bottom:16px;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.upload-zone:hover,.upload-zone.drag{border-color:var(--lime);background:rgba(200,241,53,.04);}</span></p>
+<p class="p1"><span class="s1">.upload-zone input{position:absolute;inset:0;opacity:0;cursor:pointer;}</span></p>
+<p class="p1"><span class="s1">.upload-zone .uzi{font-size:2rem;margin-bottom:8px;}</span></p>
+<p class="p1"><span class="s1">.upload-zone h3{font-size:.92rem;font-weight:700;margin-bottom:4px;}</span></p>
+<p class="p1"><span class="s1">.upload-zone p{font-size:.8rem;color:var(--text2);}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* CAMERA */</span></p>
+<p class="p1"><span class="s1">.cam-wrap{background:var(--ink3);border-radius:var(--r);border:1px solid var(--fog3);padding:20px;margin-bottom:18px;}</span></p>
+<p class="p1"><span class="s1">.cam-head{display:flex;align-items:center;gap:10px;margin-bottom:14px;font-size:.78rem;color:var(--text2);text-transform:uppercase;letter-spacing:.3px;font-weight:500;}</span></p>
+<p class="p1"><span class="s1">.cam-badge{font-size:.68rem;padding:2px 8px;border-radius:99px;background:rgba(91,184,255,.15);color:var(--sky);border:1px solid rgba(91,184,255,.25);}</span></p>
+<p class="p1"><span class="s1">.cam-no-key{font-size:.82rem;color:var(--text3);padding:12px;border-radius:var(--rsm);background:rgba(255,107,107,.07);border:1px solid rgba(255,107,107,.15);display:flex;align-items:center;gap:8px;flex-wrap:wrap;}</span></p>
+<p class="p1"><span class="s1">#video-el{width:100%;max-height:220px;border-radius:var(--rsm);background:#000;object-fit:cover;display:none;}</span></p>
+<p class="p1"><span class="s1">#photo-preview{width:100%;max-height:220px;border-radius:var(--rsm);object-fit:contain;display:none;border:1px solid var(--fog3);}</span></p>
+<p class="p1"><span class="s1">canvas#snap-canvas{display:none;}</span></p>
+<p class="p1"><span class="s1">.cam-btns{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;}</span></p>
+<p class="p1"><span class="s1">#cam-status{font-size:.8rem;color:var(--text2);margin-top:8px;min-height:18px;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* SUBJECT CARDS */</span></p>
+<p class="p1"><span class="s1">.subj-card{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:var(--ink3);border:1px solid var(--fog3);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border-radius:var(--rsm);padding:18px 20px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>margin-bottom:10px;display:flex;align-items:center;gap:16px;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>cursor:pointer;transition:all .18s;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.subj-card:hover{border-color:var(--lime);transform:translateX(3px);}</span></p>
+<p class="p1"><span class="s1">.subj-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}</span></p>
+<p class="p1"><span class="s1">.subj-info{flex:1;}</span></p>
+<p class="p1"><span class="s1">.subj-name{font-weight:700;font-size:.95rem;margin-bottom:3px;}</span></p>
+<p class="p1"><span class="s1">.subj-meta{font-size:.78rem;color:var(--text2);}</span></p>
+<p class="p1"><span class="s1">.days-pill{font-size:.74rem;padding:4px 11px;border-radius:99px;font-weight:500;white-space:nowrap;}</span></p>
+<p class="p1"><span class="s1">.d-ok{background:rgba(200,241,53,.1);color:var(--lime);border:1px solid rgba(200,241,53,.2);}</span></p>
+<p class="p1"><span class="s1">.d-warn{background:rgba(255,209,102,.1);color:var(--gold);border:1px solid rgba(255,209,102,.2);}</span></p>
+<p class="p1"><span class="s1">.d-urg{background:rgba(255,107,107,.1);color:var(--coral);border:1px solid rgba(255,107,107,.2);}</span></p>
+<p class="p1"><span class="s1">.prog-bar{height:3px;background:var(--fog3);border-radius:99px;overflow:hidden;margin-top:6px;}</span></p>
+<p class="p1"><span class="s1">.prog-fill{height:100%;border-radius:99px;background:linear-gradient(90deg,var(--lime),var(--sky));transition:width .5s;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* CHAT */</span></p>
+<p class="p1"><span class="s1">.chat-shell{background:var(--ink2);border:1px solid var(--fog3);border-radius:var(--r);overflow:hidden;}</span></p>
+<p class="p1"><span class="s1">.chat-hdr{display:flex;align-items:center;gap:12px;padding:18px 20px;border-bottom:1px solid var(--fog3);}</span></p>
+<p class="p1"><span class="s1">.chat-subj{font-weight:700;font-size:1rem;}</span></p>
+<p class="p1"><span class="s1">.chat-mode-badge{font-size:.72rem;padding:3px 10px;border-radius:99px;background:var(--fog2);color:var(--text2);border:1px solid var(--fog3);}</span></p>
+<p class="p1"><span class="s1">.chips-row{display:flex;gap:6px;flex-wrap:wrap;padding:12px 16px 0;background:var(--ink3);border-bottom:1px solid var(--fog3);}</span></p>
+<p class="p1"><span class="s1">.chip{padding:6px 14px;border-radius:99px;background:var(--fog);border:1px solid var(--fog3);color:var(--text2);font-size:.8rem;cursor:pointer;transition:all .18s;font-family:'Cabinet Grotesk',sans-serif;}</span></p>
+<p class="p1"><span class="s1">.chip.active{background:rgba(200,241,53,.12);border-color:var(--lime);color:var(--lime);}</span></p>
+<p class="p1"><span class="s1">#chat-box{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>height:340px;overflow-y:auto;background:var(--ink3);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding:20px;display:flex;flex-direction:column;gap:14px;scroll-behavior:smooth;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.msg{display:flex;gap:10px;animation:fadeUp .2s ease;}</span></p>
+<p class="p1"><span class="s1">.msg.user{flex-direction:row-reverse;}</span></p>
+<p class="p1"><span class="s1">.av{width:30px;height:30px;border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;}</span></p>
+<p class="p1"><span class="s1">.msg.ai .av{background:var(--lime);color:var(--ink);}</span></p>
+<p class="p1"><span class="s1">.msg.user .av{background:var(--fog2);border:1px solid var(--fog3);}</span></p>
+<p class="p1"><span class="s1">.bubble{max-width:76%;padding:12px 16px;font-size:.89rem;line-height:1.7;border-radius:14px;}</span></p>
+<p class="p1"><span class="s1">.msg.ai .bubble{background:var(--ink2);border:1px solid var(--fog3);border-radius:4px 14px 14px 14px;}</span></p>
+<p class="p1"><span class="s1">.msg.user .bubble{background:var(--lime);color:var(--ink);font-weight:500;border-radius:14px 4px 14px 14px;}</span></p>
+<p class="p1"><span class="s1">.bubble b{color:var(--lime);}</span></p>
+<p class="p1"><span class="s1">.msg.user .bubble b{color:var(--ink);}</span></p>
+<p class="p1"><span class="s1">.chat-foot{padding:14px 16px;border-top:1px solid var(--fog3);}</span></p>
+<p class="p1"><span class="s1">.chat-input-row{display:flex;gap:10px;}</span></p>
+<p class="p1"><span class="s1">.chat-input-row input{flex:1;padding:13px 18px;background:var(--ink3);border:1px solid var(--fog3);border-radius:var(--rsm);color:var(--text);font-family:'Cabinet Grotesk',sans-serif;font-size:.9rem;outline:none;}</span></p>
+<p class="p1"><span class="s1">.chat-input-row input:focus{border-color:var(--lime);}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* TYPING */</span></p>
+<p class="p1"><span class="s1">.typing{display:flex;align-items:center;gap:4px;padding:4px 0;}</span></p>
+<p class="p1"><span class="s1">.typing span{width:6px;height:6px;border-radius:50%;background:var(--text3);animation:bounce 1.2s infinite;}</span></p>
+<p class="p1"><span class="s1">.typing span:nth-child(2){animation-delay:.2s;}</span></p>
+<p class="p1"><span class="s1">.typing span:nth-child(3){animation-delay:.4s;}</span></p>
+<p class="p1"><span class="s1">@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* KEY OVERLAY */</span></p>
+<p class="p1"><span class="s1">.overlay{position:fixed;inset:0;z-index:50;background:rgba(0,0,0,.75);display:flex;align-items:center;justify-content:center;padding:20px;display:none;}</span></p>
+<p class="p1"><span class="s1">.overlay-box{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:var(--ink2);border:1px solid var(--fog3);border-radius:var(--r);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding:40px 36px;max-width:480px;width:100%;text-align:center;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>position:relative;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">.overlay-box h2{font-family:'Playfair Display',serif;font-size:1.7rem;font-weight:900;margin-bottom:10px;}</span></p>
+<p class="p1"><span class="s1">.overlay-box p{color:var(--text2);line-height:1.75;font-size:.92rem;margin-bottom:24px;}</span></p>
+<p class="p1"><span class="s1">.steps{text-align:left;background:var(--ink3);border-radius:var(--rsm);padding:18px 22px;margin-bottom:22px;}</span></p>
+<p class="p1"><span class="s1">.step{display:flex;gap:14px;align-items:flex-start;padding:8px 0;}</span></p>
+<p class="p1"><span class="s1">.step:not(:last-child){border-bottom:1px solid var(--fog2);}</span></p>
+<p class="p1"><span class="s1">.step-n{width:24px;height:24px;border-radius:50%;background:var(--lime);color:var(--ink);font-size:.72rem;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;}</span></p>
+<p class="p1"><span class="s1">.step-t{font-size:.88rem;color:var(--text2);line-height:1.5;}</span></p>
+<p class="p1"><span class="s1">.step-t a{color:var(--lime);text-decoration:none;font-weight:500;}</span></p>
+<p class="p1"><span class="s1">.skip-note{font-size:.76rem;color:var(--text3);margin-top:14px;}</span></p>
+<p class="p1"><span class="s1">.skip-note button{background:none;border:none;color:var(--lav);cursor:pointer;font-size:.76rem;text-decoration:underline;}</span></p>
+<p class="p1"><span class="s1">.overlay-close{position:absolute;top:14px;right:16px;background:none;border:none;color:var(--text3);cursor:pointer;font-size:1.4rem;line-height:1;}</span></p>
+<p class="p1"><span class="s1">.overlay-close:hover{color:var(--text);}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* EMPTY STATE */</span></p>
+<p class="p1"><span class="s1">.empty{text-align:center;padding:44px 20px;color:var(--text3);}</span></p>
+<p class="p1"><span class="s1">.empty .ei{font-size:2.8rem;margin-bottom:12px;}</span></p>
+<p class="p1"><span class="s1">.empty p{font-size:.88rem;line-height:1.75;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">/* TOAST */</span></p>
+<p class="p1"><span class="s1">#toast{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>position:fixed;bottom:28px;left:50%;transform:translateX(-50%) translateY(20px);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:var(--ink3);border:1px solid var(--fog3);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding:11px 22px;border-radius:var(--rsm);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-size:.85rem;color:var(--text);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>opacity:0;transition:all .25s;z-index:999;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>box-shadow:0 8px 40px rgba(0,0,0,.5);pointer-events:none;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">#toast.show{opacity:1;transform:translateX(-50%) translateY(0);}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">::-webkit-scrollbar{width:4px;}</span></p>
+<p class="p1"><span class="s1">::-webkit-scrollbar-track{background:transparent;}</span></p>
+<p class="p1"><span class="s1">::-webkit-scrollbar-thumb{background:var(--fog3);border-radius:99px;}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">@media(max-width:600px){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.form-row{grid-template-columns:1fr;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>.overlay-box{padding:28px 20px;}</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">&lt;/style&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="wrap"&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;!-- HEADER --&gt;</span></p>
+<p class="p1"><span class="s1">&lt;header&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="logo"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="logo-mark"&gt;🧠&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Study&lt;span&gt;Mind&lt;/span&gt;&lt;/h1&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="hdr-right"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="key-pill" class="key-pill key-no" onclick="openKey()"&gt;● Kein Key – klicken&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="btn btn-mint btn-sm" onclick="shareApp()"&gt;🔗 Teilen&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/header&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;!-- SHARE BANNER (shown after share click) --&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div id="share-banner" style="display:none;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;span class="share-label"&gt;🔗 Link zum Teilen:&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="share-url" id="share-url-text"&gt;–&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button class="btn btn-lime btn-sm" onclick="copyLink()"&gt;Kopieren&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button class="btn btn-ghost btn-sm" onclick="document.getElementById('share-banner').style.display='none'"&gt;✕&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;!-- TABS --&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="nav-tabs"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button class="nav-tab active" onclick="goTab('lernen',this)"&gt;📖 Lernen&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button class="nav-tab" onclick="goTab('faecher',this)"&gt;📁 Fächer&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button class="nav-tab" onclick="goTab('neu',this)"&gt;＋ Neu&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;!-- ═══ LERNEN ═══ --&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div id="tab-lernen" class="tab-c active"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="chat-shell"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="chat-hdr"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:1.2rem"&gt;🧠&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="chat-subj" id="chat-title"&gt;Kein Fach gewählt&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="chat-mode-badge" id="chat-mode"&gt;Wähle unten ein Fach&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div style="margin-left:auto;display:flex;gap:8px;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button class="btn btn-ghost btn-sm" onclick="clearChat()"&gt;↺ Neu&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="chips-row" id="chips-row" style="padding-bottom:12px;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span style="font-size:.8rem;color:var(--text3);align-self:center;"&gt;Fach:&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="chat-box"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="empty"&gt;&lt;div class="ei"&gt;☝️&lt;/div&gt;&lt;p&gt;Wähle ein Fach oben,&lt;br&gt;dann startet die Lernsession!&lt;/p&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="chat-foot"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="chat-input-row"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="user-input" placeholder="Antwort eingeben oder Frage stellen …" onkeydown="if(event.key==='Enter')sendMsg()"/&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button class="btn btn-lime" onclick="sendMsg()" id="send-btn"&gt;Senden&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;!-- ═══ FÄCHER ═══ --&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div id="tab-faecher" class="tab-c"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="card-head"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="card-title"&gt;Meine Fächer&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="card-sub" id="subj-count"&gt;0 Fächer&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="btn btn-lime btn-sm" onclick="goTab('neu',document.querySelectorAll('.nav-tab')[2])"&gt;+ Neu&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div id="subj-list"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;!-- ═══ NEU ═══ --&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div id="tab-neu" class="tab-c"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="card-head"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="card-title"&gt;Neues Fach anlegen&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="form-row"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="form-group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;label&gt;Fachname *&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="n-name" placeholder="z.B. Biologie, Mathe …"/&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="form-group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;label&gt;Prüfungsdatum *&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;input type="date" id="n-date"/&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="form-group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label&gt;Lernmodus&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;select id="n-mode"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;option value="abfragen"&gt;🎯 Abfragen – KI stellt Fragen&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;option value="erklaeren"&gt;💡 Erklären – KI erklärt Themen&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;option value="quiz"&gt;🧩 Multiple Choice Quiz&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;option value="mixed"&gt;🔀 Gemischt&lt;/option&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/select&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="divider"&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- THEMEN --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="form-group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label&gt;📌 Themen als Liste (ohne KI nutzbar)&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="topics-wrap" id="topics-wrap"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;span style="font-size:.82rem;color:var(--text3)"&gt;Noch keine Themen&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="topic-input-row"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;input type="text" id="topic-input" placeholder="z.B. Photosynthese, Zellteilung …" onkeydown="if(event.key==='Enter')addTopic()"/&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button class="btn btn-ghost" onclick="addTopic()"&gt;+ Hinzufügen&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- LERNSTOFF TEXT --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="form-group"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label&gt;📝 Lernstoff als Text&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;textarea id="n-content" placeholder="Mitschriften, Definitionen, Formeln … alles hier einfügen"&gt;&lt;/textarea&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- FILE UPLOAD --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="upload-zone" id="drop-zone" onclick="document.getElementById('file-in').click()"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;input type="file" id="file-in" accept=".txt,.md" onchange="loadFile(event)"/&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="uzi"&gt;📄&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;h3&gt;Textdatei hochladen&lt;/h3&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;p&gt;.txt oder .md – ziehen oder klicken&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;!-- KAMERA --&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="cam-wrap"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="cam-head"&gt;📷 Notizen abfotografieren &lt;span class="cam-badge"&gt;braucht KI-Key&lt;/span&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div id="cam-no-key" class="cam-no-key" style="display:none;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>⚠️ Kamerafunktion braucht einen API-Key.</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button class="btn btn-sky btn-sm" onclick="openKey()"&gt;Key eingeben&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;video id="video-el" autoplay playsinline&gt;&lt;/video&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;img id="photo-preview" alt="Vorschau"/&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;canvas id="snap-canvas"&gt;&lt;/canvas&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="cam-btns"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button class="btn btn-sky btn-sm" onclick="startCam()" id="btn-start"&gt;📷 Kamera öffnen&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button class="btn btn-lime btn-sm" onclick="snap()" id="btn-snap" style="display:none;"&gt;🔵 Foto&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button class="btn btn-ghost btn-sm" onclick="stopCam()" id="btn-stop" style="display:none;"&gt;✕ Schließen&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button class="btn btn-coral btn-sm" onclick="analyzePhoto()" id="btn-analyze" style="display:none;"&gt;🔍 KI analysieren&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;button class="btn btn-ghost btn-sm" onclick="retake()" id="btn-retake" style="display:none;"&gt;↺ Neues Foto&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div id="cam-status"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="btn btn-lime" onclick="saveSubject()" style="width:100%;justify-content:center;padding:15px;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>Fach speichern ✓</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;/div&gt;&lt;!-- /wrap --&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;!-- KEY OVERLAY --&gt;</span></p>
+<p class="p1"><span class="s1">&lt;div class="overlay" id="key-overlay"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="overlay-box"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="overlay-close" onclick="closeKey()"&gt;×&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div style="font-size:3rem;margin-bottom:16px"&gt;🔑&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;API-Key einrichten&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;Für KI-Funktionen (Abfragen, Foto-Analyse) brauchst du einen kostenlosen Key.&lt;/p&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="steps"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="step"&gt;&lt;div class="step-n"&gt;1&lt;/div&gt;&lt;div class="step-t"&gt;Geh auf &lt;a href="https://console.anthropic.com" target="_blank"&gt;console.anthropic.com&lt;/a&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="step"&gt;&lt;div class="step-n"&gt;2&lt;/div&gt;&lt;div class="step-t"&gt;Mit Google-Account anmelden (kostenlos)&lt;/div&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="step"&gt;&lt;div class="step-n"&gt;3&lt;/div&gt;&lt;div class="step-t"&gt;„API Keys" → „Create Key" klicken&lt;/div&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="step"&gt;&lt;div class="step-n"&gt;4&lt;/div&gt;&lt;div class="step-t"&gt;Key kopieren und hier einfügen&lt;/div&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="form-group" style="text-align:left;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;label&gt;Dein API-Key&lt;/label&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;input type="password" id="key-input" placeholder="sk-ant-api03-…"/&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div style="display:flex;gap:10px;justify-content:center;"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="btn btn-lime" onclick="saveKey()"&gt;Speichern ✓&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="btn btn-ghost" onclick="closeKey()"&gt;Abbrechen&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="skip-note"&gt;Ohne Key: Themen manuell eingeben &amp; offline lernen. &lt;button onclick="closeKey()"&gt;Trotzdem fortfahren&lt;/button&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;div id="toast"&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;script&gt;</span></p>
+<p class="p1"><span class="s1">// ─── STATE ───</span></p>
+<p class="p1"><span class="s1">let apiKey = localStorage.getItem('sm_key') || '';</span></p>
+<p class="p1"><span class="s1">let subjects = JSON.parse(localStorage.getItem('sm_subjs') || '[]');</span></p>
+<p class="p1"><span class="s1">let newTopics = [];</span></p>
+<p class="p1"><span class="s1">let activeId = null;</span></p>
+<p class="p1"><span class="s1">let chatHistory = [];</span></p>
+<p class="p1"><span class="s1">let isLoading = false;</span></p>
+<p class="p1"><span class="s1">let camStream = null;</span></p>
+<p class="p1"><span class="s1">let photoData = null;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// ─── INIT ───</span></p>
+<p class="p1"><span class="s1">window.onload = () =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>updateKeyPill();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>renderSubjects();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>renderChips();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const d = new Date(); d.setDate(d.getDate()+10);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('n-date').value = d.toISOString().split('T')[0];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// drag &amp; drop</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const dz = document.getElementById('drop-zone');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>dz.addEventListener('dragover', e=&gt;{e.preventDefault();dz.classList.add('drag');});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>dz.addEventListener('dragleave', ()=&gt;dz.classList.remove('drag'));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>dz.addEventListener('drop', e=&gt;{e.preventDefault();dz.classList.remove('drag');const f=e.dataTransfer.files[0];if(f)readFile(f);});</span></p>
+<p class="p1"><span class="s1">};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// ─── KEY ───</span></p>
+<p class="p1"><span class="s1">function openKey() { document.getElementById('key-overlay').style.display='flex'; if(apiKey) document.getElementById('key-input').value=apiKey; }</span></p>
+<p class="p1"><span class="s1">function closeKey() { document.getElementById('key-overlay').style.display='none'; }</span></p>
+<p class="p1"><span class="s1">function saveKey() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const v = document.getElementById('key-input').value.trim();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (!v) { closeKey(); return; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (!v.startsWith('sk-ant')) { toast('Ungültiger Key ❌'); return; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>apiKey=v; localStorage.setItem('sm_key',v);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>updateKeyPill(); closeKey(); toast('API-Key gespeichert ✓');</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">function updateKeyPill() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const p = document.getElementById('key-pill');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (apiKey) { p.className='key-pill key-ok'; p.textContent='● KI aktiv'; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>else { p.className='key-pill key-no'; p.textContent='● Kein Key – klicken'; }</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// ─── SHARE ───</span></p>
+<p class="p1"><span class="s1">function shareApp() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const url = window.location.href;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('share-url-text').textContent = url;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('share-banner').style.display = 'flex';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>window.scrollTo({top:0,behavior:'smooth'});</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">function copyLink() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const url = window.location.href;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (navigator.clipboard) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>navigator.clipboard.writeText(url).then(()=&gt;toast('Link kopiert ✓ – jetzt an Freunde schicken!'));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} else {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const t=document.createElement('textarea');t.value=url;document.body.appendChild(t);t.select();document.execCommand('copy');document.body.removeChild(t);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>toast('Link kopiert ✓');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// ─── TABS ───</span></p>
+<p class="p1"><span class="s1">function goTab(name, btn) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.querySelectorAll('.tab-c').forEach(t=&gt;t.classList.remove('active'));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.querySelectorAll('.nav-tab').forEach(b=&gt;b.classList.remove('active'));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('tab-'+name).classList.add('active');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(btn) btn.classList.add('active');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(name==='faecher') renderSubjects();</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// ─── TOPICS ───</span></p>
+<p class="p1"><span class="s1">function addTopic() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const inp = document.getElementById('topic-input');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const v = inp.value.trim(); if(!v) return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>newTopics.push(v); inp.value=''; renderTopics(); inp.focus();</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">function removeTopic(i) { newTopics.splice(i,1); renderTopics(); }</span></p>
+<p class="p1"><span class="s1">function renderTopics() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const w = document.getElementById('topics-wrap');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (!newTopics.length) { w.innerHTML='&lt;span style="font-size:.82rem;color:var(--text3)"&gt;Noch keine Themen&lt;/span&gt;'; return; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>w.innerHTML = newTopics.map((t,i)=&gt;`&lt;span class="topic-tag"&gt;${t}&lt;button onclick="removeTopic(${i})"&gt;×&lt;/button&gt;&lt;/span&gt;`).join('');</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// ─── FILE ───</span></p>
+<p class="p1"><span class="s1">function loadFile(e) { const f=e.target.files[0]; if(f) readFile(f); }</span></p>
+<p class="p1"><span class="s1">function readFile(f) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const r=new FileReader();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>r.onload=ev=&gt;{ document.getElementById('n-content').value=ev.target.result; toast('Datei geladen: '+f.name+' ✓'); };</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>r.readAsText(f);</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// ─── CAMERA ───</span></p>
+<p class="p1"><span class="s1">async function startCam() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if (!apiKey) { document.getElementById('cam-no-key').style.display='flex'; return; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('cam-no-key').style.display='none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>try {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>camStream = await navigator.mediaDevices.getUserMedia({video:{facingMode:'environment'}});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const v=document.getElementById('video-el'); v.srcObject=camStream; v.style.display='block';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('btn-start').style.display='none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('btn-snap').style.display='inline-flex';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('btn-stop').style.display='inline-flex';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('cam-status').textContent='📷 Halte deine Notizen vor die Kamera …';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} catch(e) { toast('Kamera konnte nicht geöffnet werden ❌'); }</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">function snap() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const v=document.getElementById('video-el'), c=document.getElementById('snap-canvas');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>c.width=v.videoWidth; c.height=v.videoHeight;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>c.getContext('2d').drawImage(v,0,0);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>photoData=c.toDataURL('image/jpeg',.85).split(',')[1];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('photo-preview').src='data:image/jpeg;base64,'+photoData;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('photo-preview').style.display='block';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>stopCam();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('btn-snap').style.display='none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('btn-analyze').style.display='inline-flex';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('btn-retake').style.display='inline-flex';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('cam-status').textContent='✓ Foto aufgenommen – jetzt analysieren!';</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">function stopCam() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(camStream){camStream.getTracks().forEach(t=&gt;t.stop());camStream=null;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('video-el').style.display='none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('btn-snap').style.display='none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('btn-stop').style.display='none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(!photoData) document.getElementById('btn-start').style.display='inline-flex';</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">function retake() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>photoData=null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('photo-preview').style.display='none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('btn-analyze').style.display='none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('btn-retake').style.display='none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('btn-start').style.display='inline-flex';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('cam-status').textContent='';</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">async function analyzePhoto() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(!apiKey||!photoData) return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('cam-status').textContent='⏳ KI analysiert Foto …';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('btn-analyze').disabled=true;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>try {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const res=await fetch('https://api.anthropic.com/v1/messages',{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>method:'POST',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>body:JSON.stringify({</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>model:'claude-sonnet-4-20250514',max_tokens:1000,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>messages:[{role:'user',content:[</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>{type:'image',source:{type:'base64',media_type:'image/jpeg',data:photoData}},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>{type:'text',text:'Extrahiere den gesamten Lernstoff aus diesem Foto als strukturierten Text auf Deutsch. Nur den Inhalt, keine Kommentare.'}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>]}]</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>})</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const d=await res.json();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if(d.content&amp;&amp;d.content[0]) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const ex=d.content[0].text;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const cur=document.getElementById('n-content').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById('n-content').value=cur?cur+'\n\n'+ex:ex;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById('cam-status').textContent='✅ Lernstoff extrahiert!';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>toast('Foto analysiert ✓');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} catch(e) { document.getElementById('cam-status').textContent='❌ Fehler bei Analyse'; }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('btn-analyze').disabled=false;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// ─── SAVE SUBJECT ───</span></p>
+<p class="p1"><span class="s1">function saveSubject() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const name=document.getElementById('n-name').value.trim();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const date=document.getElementById('n-date').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const content=document.getElementById('n-content').value.trim();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const mode=document.getElementById('n-mode').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(!name){toast('Bitte Fachname eingeben');return;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(!date){toast('Bitte Datum wählen');return;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(!content&amp;&amp;!newTopics.length){toast('Bitte Lernstoff oder Themen eingeben');return;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const colors=['#c8f135','#5bb8ff','#ff6b6b','#ffd166','#b8a9ff','#06d6a0','#f4a261'];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const s={</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>id:Date.now().toString(),name,date,content,mode,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>topics:[...newTopics],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>color:colors[subjects.length%colors.length],</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>progress:0,sessions:0,created:new Date().toISOString()</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>subjects.push(s); saveSubjs();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>toast(`"${name}" gespeichert ✓`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>// reset</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('n-name').value='';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('n-content').value='';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('file-in').value='';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>newTopics=[]; renderTopics(); photoData=null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('photo-preview').style.display='none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('btn-analyze').style.display='none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('btn-retake').style.display='none';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('btn-start').style.display='inline-flex';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('cam-status').textContent='';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>renderChips();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>goTab('faecher',document.querySelectorAll('.nav-tab')[1]);</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">function saveSubjs(){localStorage.setItem('sm_subjs',JSON.stringify(subjects));}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// ─── RENDER SUBJECTS ───</span></p>
+<p class="p1"><span class="s1">function daysUntil(ds){return Math.ceil((new Date(ds)-new Date())/(1000*60*60*24));}</span></p>
+<p class="p1"><span class="s1">function renderSubjects() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const el=document.getElementById('subj-list');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('subj-count').textContent=subjects.length+' Fach'+(subjects.length!==1?'er':'');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(!subjects.length){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>el.innerHTML='&lt;div class="empty"&gt;&lt;div class="ei"&gt;📭&lt;/div&gt;&lt;p&gt;Noch keine Fächer.&lt;br&gt;Leg dein erstes an!&lt;/p&gt;&lt;/div&gt;';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>el.innerHTML=subjects.map(s=&gt;{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const d=daysUntil(s.date);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const bc=d&gt;14?'d-ok':d&gt;5?'d-warn':'d-urg';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const bt=d&lt;0?'Vorbei':d===0?'Heute!':d+' Tage';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const pct=Math.min(100,s.progress||0);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const tc=s.topics&amp;&amp;s.topics.length?`· ${s.topics.length} Thema(en)`:'';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>return `&lt;div class="subj-card" onclick="startSession('${s.id}')"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="subj-dot" style="background:${s.color}"&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="subj-info"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="subj-name"&gt;${s.name}&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="subj-meta"&gt;📅 ${new Date(s.date).toLocaleDateString('de-DE')} ${tc} · ${s.sessions} Session(s)&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="prog-bar"&gt;&lt;div class="prog-fill" style="width:${pct}%"&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span class="days-pill ${bc}"&gt;${bt}&lt;/span&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="btn btn-coral btn-sm" onclick="event.stopPropagation();delSubj('${s.id}')" title="Löschen"&gt;🗑&lt;/button&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}).join('');</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">function delSubj(id){subjects=subjects.filter(s=&gt;s.id!==id);saveSubjs();renderSubjects();renderChips();toast('Gelöscht');}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// ─── CHIPS ───</span></p>
+<p class="p1"><span class="s1">function renderChips() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const w=document.getElementById('chips-row');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(!subjects.length){w.innerHTML='&lt;span style="font-size:.8rem;color:var(--text3)"&gt;Noch kein Fach – erstelle eines!&lt;/span&gt;';return;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>w.innerHTML='&lt;span style="font-size:.8rem;color:var(--text3);align-self:center;"&gt;Fach:&lt;/span&gt;'+</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>subjects.map(s=&gt;`&lt;button class="chip${activeId===s.id?' active':''}" onclick="startSession('${s.id}')"&gt;${s.name}&lt;/button&gt;`).join('');</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">// ─── CHAT ───</span></p>
+<p class="p1"><span class="s1">function startSession(id) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>activeId=id;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const s=subjects.find(x=&gt;x.id===id); if(!s) return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>chatHistory=[];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('chat-box').innerHTML='';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('chat-title').textContent=s.name;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const mn={abfragen:'Abfrage-Modus',erklaeren:'Erklärungs-Modus',quiz:'Quiz-Modus',mixed:'Gemischter Modus'};</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('chat-mode').textContent=mn[s.mode]||s.mode;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>renderChips();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>goTab('lernen',document.querySelectorAll('.nav-tab')[0]);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const d=daysUntil(s.date);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const urg=d&lt;=3?`⚠️ Nur noch ${d} Tag(e) bis zur Prüfung!`:d&lt;=7?`⏰ Noch ${d} Tage.`:`📅 Du hast noch ${d} Tage.`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const tc=s.topics&amp;&amp;s.topics.length?`\n\n📌 Deine Themen: **${s.topics.join(', ')}**`:'';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const mh={abfragen:'Ich stelle dir Fragen – du antwortest.',erklaeren:'Ich erkläre dir die Themen.',quiz:'Multiple-Choice-Fragen!',mixed:'Mix aus allem.'}[s.mode];</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>addMsg('ai',`Hey! Bereit für **${s.name}**? 🎓\n\n${urg}${tc}\n\n_${mh}_`);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(!apiKey&amp;&amp;s.topics&amp;&amp;s.topics.length) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>addMsg('ai','⚠️ Kein API-Key – hier deine Themen zum Durcharbeiten:\n\n'+s.topics.map((t,i)=&gt;`${i+1}. ${t}`).join('\n')+'\n\n_Füge einen Key hinzu für KI-Fragen!_');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} else if(apiKey) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>addMsg('ai','Sag **"Start"** oder stelle direkt eine Frage! 💪');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function addMsg(role,text) {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const box=document.getElementById('chat-box');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const d=document.createElement('div');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>d.className='msg '+(role==='ai'?'ai':'user');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const av=role==='ai'?'🧠':'👤';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const fmt=text.replace(/\*\*(.*?)\*\*/g,'&lt;b&gt;$1&lt;/b&gt;').replace(/\*(.*?)\*/g,'&lt;em&gt;$1&lt;/em&gt;').replace(/\n/g,'&lt;br&gt;');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>d.innerHTML=`&lt;div class="av"&gt;${av}&lt;/div&gt;&lt;div class="bubble"&gt;${fmt}&lt;/div&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>box.appendChild(d); box.scrollTop=box.scrollHeight;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>chatHistory.push({role:role==='ai'?'assistant':'user',content:text});</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">function addTyping(){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const box=document.getElementById('chat-box');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const d=document.createElement('div');d.className='msg ai';d.id='typing';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>d.innerHTML=`&lt;div class="av"&gt;🧠&lt;/div&gt;&lt;div class="bubble"&gt;&lt;div class="typing"&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;span&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>box.appendChild(d);box.scrollTop=box.scrollHeight;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">function rmTyping(){const t=document.getElementById('typing');if(t)t.remove();}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">async function sendMsg() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(isLoading) return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(!activeId){toast('Bitte erst ein Fach wählen!');return;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const inp=document.getElementById('user-input');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const text=inp.value.trim(); if(!text) return;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>inp.value='';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const s=subjects.find(x=&gt;x.id===activeId);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>addMsg('user',text);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(!apiKey){addMsg('ai','⚠️ Kein API-Key. Klicke oben auf „Kein Key" um einen einzugeben.');return;}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>isLoading=true; document.getElementById('send-btn').disabled=true; addTyping();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const mi={</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>abfragen:'Stelle eine klare Frage. Nach Antwort: kurzes Feedback, dann nächste Frage.',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>erklaeren:'Erkläre klar mit Beispielen. Frage am Ende ob es Fragen gibt.',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>quiz:'Eine Multiple-Choice-Frage mit A B C D. Warte auf Antwort, dann Feedback.',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>mixed:'Wechsle zwischen Fragen, Erklärungen und Quiz.'</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}[s.mode]||'';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const tp=s.topics&amp;&amp;s.topics.length?`\nThemen: ${s.topics.join(', ')}`:'';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const ct=s.content?`\nLernstoff:\n${s.content.slice(0,7000)}`:'';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const sys=`Du bist ein freundlicher KI-Lernassistent für eine 15-jährige Schülerin. Antworte auf Deutsch. Fach: ${s.name} | Prüfung: ${new Date(s.date).toLocaleDateString('de-DE')} (${daysUntil(s.date)} Tage)${tp}${ct}\n\nAufgabe: ${mi}\nMax 180 Wörter. Ermutigend. Bei Fehlern erst loben was richtig war.`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>try {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const msgs=chatHistory.slice(-14).map(m=&gt;({role:m.role,content:m.content}));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const res=await fetch('https://api.anthropic.com/v1/messages',{</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>method:'POST',</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>headers:{'Content-Type':'application/json','x-api-key':apiKey,'anthropic-version':'2023-06-01','anthropic-dangerous-direct-browser-access':'true'},</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>body:JSON.stringify({model:'claude-sonnet-4-20250514',max_tokens:500,system:sys,messages:msgs})</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const data=await res.json(); rmTyping();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if(data.content&amp;&amp;data.content[0]){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>addMsg('ai',data.content[0].text);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>s.sessions=(s.sessions||0)+1; s.progress=Math.min(100,(s.progress||0)+2); saveSubjs();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>} else { addMsg('ai','Fehler: '+(data.error?.message||'Prüfe deinen API-Key.')); }</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} catch(e){rmTyping();addMsg('ai','❌ Verbindungsfehler. Prüfe deine Verbindung.');}</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>isLoading=false; document.getElementById('send-btn').disabled=false;</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function clearChat(){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>chatHistory=[];activeId=null;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('chat-box').innerHTML='&lt;div class="empty"&gt;&lt;div class="ei"&gt;☝️&lt;/div&gt;&lt;p&gt;Wähle ein Fach oben,&lt;br&gt;dann startet die Lernsession!&lt;/p&gt;&lt;/div&gt;';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('chat-title').textContent='Kein Fach gewählt';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('chat-mode').textContent='Wähle unten ein Fach';</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>renderChips();</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">function toast(msg){</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const t=document.getElementById('toast');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>t.textContent=msg;t.classList.add('show');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>setTimeout(()=&gt;t.classList.remove('show'),2800);</span></p>
+<p class="p1"><span class="s1">}</span></p>
+<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+</body>
+</html>
